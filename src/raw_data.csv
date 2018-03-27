@@ -1,0 +1,58 @@
+COMUNE;RUOLO;2018;2017;2016;2015;2014;2013;2012;2011;2010;2009;UNIFORMITA FORMATO DATI;FACILITA ESTRAZIONE DATI
+"Cellamare";"Sindaco";0;0;1;1;1;0;0;0;0;0;0.8;0
+"Cellamare";"Vice Sindaco";0;0;1;1;1;1;0;0;0;0;0.8;0
+"Cellamare";"Assessori";0;0;1;1;1;1;0;0;0;0;0.8;0
+"Noci";"Dirigenti";0;0;1;0;0;0;0;0;0;0;1;0
+"Bari";"Segretario Generale";0;0;1;1;1;1;1;0;1;1;0.8;0
+"Bari";"Direttore Generale";0;1;1;1;1;1;1;0;1;1;0.8;0
+"Bari";"Capo di Gabinetto";0;1;1;1;1;1;1;0;0;0.5;0.8;0
+"Bari";"Dirigenti";0;1;1;0;0;0;0;0;0;0;0.8;0
+"Capurso";"Sindaco";0;0;0.5;0;0;0;0;0;0;0;1;0.8
+"Capurso";"Vice Sindaco";0;0;0.5;0;0;0;0;0;0;0;1;0.8
+"Capurso";"Assessori";0;0;0.5;0;0;0;0;0;0;0;1;0.8
+"Capurso";"Presidente del Consiglio";0;0;0.5;0;0;0;0;0;0;0;1;1
+"Locorotondo";"Segretario Generale";0;0;1;0;1;0;0;0;0;0;1;0
+"Modugno";"Segretario Generale";0;0;0.5;1;1;1;0;0;0;0;0.3;0
+"Modugno";"Dirigenti";0;1;1;0;0;1;0;0;0;0;0.3;0
+"Toritto";"Segretario Generale";0;1;0;0;0;0;0;0;0;0;1;0
+"Giovinazzo";"Segretario Generale";0;0;1;0;0;0;0;0;0;0;0.8;0
+"Giovinazzo";"Dirigenti";0;0;0.5;1;0;1;0;0;0;0;0.8;0
+"Castellana Grotte";"Segretario Generale";0;1;0;0;0;0;0;0;0;0;1;0
+"Altamura";"Segretario Generale";0;1;1;1;1;1;1;1;1;1;0.8;0
+"Altamura";"Dirigenti";0;1;1;1;1;1;1;1;1;1;0.8;0
+"Monopoli";"Sindaco";0;0;1;1;1;1;0;0;0;0;1;1
+"Monopoli";"ViceSindaco";0;0;1;1;1;1;0;0;0;0;1;1
+"Monopoli";"Assessori";0;0;1;1;1;1;0;0;0;0;1;1
+"Bitonto";"Segretario Generale";0;1;1;1;1;1;0;0;0;0;1;0.5
+"Bitonto";"Dirigenti";0;0;1;1;1;1;0;0;0;0;1;0.5
+"Santeramo in Colle";"Segretario Generale";0;0;1;1;1;1;1;1;0;0;1;0
+"Santeramo in Colle";"Dirigenti";0;0;1;1;1;1;1;1;0;0;1;0
+"Sannicandro di Bari";"Segretario Generale";0;0;0.5;0;0;0;0;0;0;0;1;0
+"Molfetta";"Segretario Generale";0;0;1;0;1;1;0;0;0;0;1;0
+"Molfetta";"Dirigenti";0;0;0;1;1;1;0;0;0;0;1;0
+"Corato";"Segretario Generale";0;0;0.5;0;0;1;1;0;0;0;1;1
+"Corato";"Dirigenti";0;1;0.5;1;0;1;1;0;0;0;1;1
+"Bitetto";"Segretario Generale";0;0;0;0.5;0;0;0;0;0;0;1;0
+"Valenzano";"Segretario Generale";0;0;0;0;0;0;1;0;0;0;1;0
+"Valenzano";"Funzionari";0;0;0;0;0;0;1;0;0;0;1;0
+"Adelfia";"Segretario Generale";0;0;1;1;1;0;0;1;0;0;1;0
+"Alberobello";"Segretario Generale";0;0;1;1;0;0;0;0;0;0;1;0
+"Putignano";"Segretario Generale";1;1;1;1;1;1;0;0;0;0;1;0
+"Putignano";"Dirigenti";1;1;1;1;1;1;0;0;0;0;1;0
+"Poggiorsini";"Segretario Generale";0;0;1;0;0;0;0;0;0;0;0.9;0.9
+"Poggiorsini";"Dirigenti";0;0;0;0;0.5;0;0;0;0;0;0.9;0.9
+"Ruvo di Puglia";"Segretario Generale";0;1;1;1;1;0;0;0;0;0;1;0
+"Conversano";"Dirigenti";0;0.5;1;0;0;0;0;0;0;0;1;0
+"Conversano";"Vice Segretario Generale";0;0;1;1;0;0;0;0;0;0;1;0
+"Gioia del Colle";"Segretario Generale";0;0;1;0;0;0;0;0;0;0;0.8;0
+"Gioia del Colle";"Dirigenti";0;0;0;0;0;1;0;0;1;0;0.8;0
+"Polignano a Mare";"Segretario Generale";0;0;1;1;0;0;0;0;0;0;1;0
+"Cassano delle Murge";"Segretario Generale";0;0;0;0;1;0;0;0;0;0;1;0
+"Noicattaro";"Segretario Generale";0;1;1;1;1;1;1;1;1;1;0.9;0
+"Noicattaro";"Vice Segretario Generale";0;1;1;1;1;1;1;1;1;1;0.9;0
+"Noicattaro";"Dirigenti";0;1;1;1;1;1;1;1;1;1;0.9;0
+"Mola di Bari";"Segretario Generale";0;1;1;1;1;1;1;0;0;0;0.5;0.5
+"Sammichele di Bari";"Segretario Generale";0;0;0;1;0;0;0;0;0;0;1;0
+"Turi";"Segretario Generale";0;1;0;0;0;0;0;0;0;0;1;0
+"Gravina in Puglia";"Segretario Generale";0;1;1;1;0;0;0;0;0;0;1;0
+"Gravina in Puglia";"Dirigenti";0;1;1;1;1;1;1;0;0;0;1;0
