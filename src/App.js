@@ -13,8 +13,9 @@ var options = {
     center: [16.8719, 41.1171],
     zoom: 8,
     dataIntervals: [10000,50000,150000,300000000],
-    colorIntervals: ["#FFCCCC", "#FF6666", "#CC0000", "#990000"],
+    colorIntervals: ["#FFFFDD", "#3E9583", "#3f6d82", "#013f5b"],
     highlightColor: '#FCBC34',
+    id: 'COMUNE',
     property: 'numero_di_residenti'
 };
 
@@ -26,17 +27,17 @@ var colorScale = scaleThreshold().domain(options.dataIntervals).range(options.co
 var features = geojson.features;
 
 //attach data
-var comuni = data.map((d) => d.COMUNE);
+var comuni = data.map((d) => d[options.id]);
 
 features.forEach((d,i) => {
-    var index = comuni.indexOf(d.properties.COMUNE);
+    var index = comuni.indexOf(d.properties[options.id]);
     d.properties["numero_di_residenti"] = data[index]["numero_di_residenti"];
-    d.data = data[index]["punteggio_medio"] + 0.001;
+    d.punteggio_medio = data[index]["punteggio_medio"] + 0.001;
     d.punteggio_completezza_dati = data[index]["punteggio_completezza_dati"];
     d.punteggio_facilita_estrazione_dati = data[index]["punteggio_facilita_estrazione_dati"];
     d.punteggio_uniformita_formato_dati = data[index]["punteggio_uniformita_formato_dati"];
 })
-features = features.sort((a,b) => b.data-a.data);
+features = features.sort((a,b) => b["punteggio_medio"]-a["punteggio_medio"]);
 
 
 class App extends Component {
@@ -48,7 +49,7 @@ class App extends Component {
     };
         
     onHover(d) {
-	this.setState({ hover: d.properties["COMUNE"] })
+	this.setState({ hover: d.properties[options.id] })
     };
 
     render() {
@@ -59,6 +60,7 @@ class App extends Component {
 	            </div>
 		    <br/>
 		    <h2>Provincia di {options.city}</h2>
+		    <h3>Disponibilità dei dati relativi agli stipendi dei Segretari Generali e dei dirigenti dei Comuni</h3>
 		    <br/>
 		    <div style={{ display: "flex" }}>
 		        <Map

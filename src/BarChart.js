@@ -18,8 +18,8 @@ class BarChart extends Component {
     
     componentDidMount() {
 	const node = this.node;
-	const dataMax = max(this.props.data.map(d => d.data));
-	this.barWidth = 10;
+	const dataMax = max(this.props.data.map(d => d["punteggio_medio"]));
+	this.barWidth = 14;
 	const legend = legendColor()
               .scale(this.props.colorScale)
               .labels(["< 15000 abitanti", "tra 15000 e 50000", "tra 50000 e 150000", "> 150000 abitanti"]);
@@ -34,7 +34,7 @@ class BarChart extends Component {
 
         select(node)
             .select("g.legend")
-            .attr("transform", "translate(15, 330)");
+            .attr("transform", "translate(35, 380)");
 
 	this.yScale = scaleLinear()
               .domain([0, dataMax])
@@ -42,64 +42,47 @@ class BarChart extends Component {
 
 	select(node)
             .append("text")
-            .attr("class", "bartitle")
-            .attr("text-anchor", "left")
-            .attr("x", 20)
-            .attr("y", 20)
-            .text("Disponibilità dei dati relativi agli stipendi");
-
-	select(node)
-            .append("text")
-            .attr("class", "bartitle")
-            .attr("text-anchor", "left")
-            .attr("x", 20)
-            .attr("y", 40)
-            .text("dei Segretari Generali e dei dirigenti dei Comuni");
-
-	
-	 select(node)
-            .append("text")
             .attr("class", "bartext")
             .attr("text-anchor", "middle")
-            .attr("x", 270 - this.yScale(this.props.data[0].data))
-            .attr("y", 110)
-            .text(Math.round(100 * this.props.data[0].data) + "%");
+            .attr("x", 320 - this.yScale(this.props.data[0]["punteggio_medio"]))
+            .attr("y", 12)
+            .text(Math.round(100 * this.props.data[0]["punteggio_medio"]) + "%");
 
 	select(node)
             .append("text")
             .attr("id", "COMUNE")
             .attr("x", 20)
-            .attr("y", 200)
+            .attr("y", 100)
 
 	select(node)
             .append("text")
             .attr("id", "num_di_residenti")
             .attr("x", 20)
-            .attr("y", 200 + this.barWidth *2)
+            .attr("y", 200 + this.barWidth * 2)
 
 	select(node)
 	    .append("text")
 	    .attr("id", "punteggio_uniformita_formato_dati")
 	    .attr("x", 20)
-	    .attr("y", 200 + this.barWidth *4)
+	    .attr("y", 200 + this.barWidth * 4)
 
 	select(node)
 	    .append("text")
 	    .attr("id", "punteggio_facilita_estrazione_dati")
 	    .attr("x", 20)
-	    .attr("y", 200 + this.barWidth *6)
+	    .attr("y", 200 + this.barWidth * 6)
 
 	select(node)
 	    .append("text")
 	    .attr("id", "punteggio_completezza_dati")
 	    .attr("x", 20)
-	    .attr("y", 200 + this.barWidth *8)
+	    .attr("y", 200 + this.barWidth * 8)
 
 	select(node)
 	    .append("text")
 	    .attr("id", "punteggio_medio")
 	    .attr("x", 20)
-	    .attr("y", 200 + this.barWidth *10)    
+	    .attr("y", 200 + this.barWidth * 10)    
 	
 	this.createBarChart();
     };
@@ -110,18 +93,16 @@ class BarChart extends Component {
     
     createBarChart() {
 	var node = this.node;
+	
 	select(node)
 	    .selectAll("rect.bar")
 	    .data(this.props.data)
 	    .enter()
 	    .append("rect")
             .attr("class", "bar")
-            .on("mouseover", d => {
-		this.props.onHover(d);
-	    })
+            .on("mouseover", this.props.onHover)
 	//.on("mouseleave", this.setState({ hoverElement: "none" }));
 	
-		
 	select(node)
 	    .selectAll("rect.bar")
 	    .data(this.props.data)
@@ -130,9 +111,9 @@ class BarChart extends Component {
 	select(node)
 	    .selectAll("rect.bar")
 	    .data(this.props.data)
-            .attr("y", (d,i) => 100 + i * this.barWidth)
-            .attr("x", d => 300 - this.yScale(d.data))
-            .attr("width", d => this.yScale(d.data))
+            .attr("y", (d,i) => i * this.barWidth)
+            .attr("x", d => 380 - this.yScale(d["punteggio_medio"]))
+            .attr("width", d => this.yScale(d["punteggio_medio"]))
             .attr("height", this.barWidth)
             .style("fill", d => {
 		return this.props.hoverElement === d.properties["COMUNE"] ? this.props.highlightColor : this.props.colorScale(d.properties[this.props.property])
@@ -140,27 +121,27 @@ class BarChart extends Component {
             .style("stroke", "black")
             .style("stroke-opacity", 0.25);
 
-	var index = this.props.data.map(d => d.properties.COMUNE).indexOf(this.props.hoverElement);
+	var index = this.props.data.map(d => d.properties["COMUNE"]).indexOf(this.props.hoverElement);
 	if (index > -1) {
 	    select("#COMUNE")
-		.text("Comune di " + this.props.data[index].properties.COMUNE)
+		.text("Comune di " + this.props.data[index].properties["COMUNE"])
+	        .style("font-weight", "bold")
+
 	    select("#num_di_residenti")
-		.text("num di residenti: " + this.props.data[index].properties.numero_di_residenti)
+		.text(this.props.data[index].properties.numero_di_residenti + " residenti")
 
 	    select("#punteggio_uniformita_formato_dati")
-		.text(Math.round(100*this.props.data[index]["punteggio_uniformita_formato_dati"]) + "% uniformità formato dati")
+		.text(Math.round(100 * this.props.data[index]["punteggio_uniformita_formato_dati"]) + "% uniformità formato dati")
 
 	    select("#punteggio_facilita_estrazione_dati")
-		.text(Math.round(100*this.props.data[index]["punteggio_facilita_estrazione_dati"]) + "% facilità estrazione dati")
+		.text(Math.round(100 * this.props.data[index]["punteggio_facilita_estrazione_dati"]) + "% facilità estrazione dati")
 
 	    select("#punteggio_completezza_dati")
-		.text(Math.round(100*this.props.data[index]["punteggio_completezza_dati"])  + "%" + " completezza dati")
+		.text(Math.round(100 * this.props.data[index]["punteggio_completezza_dati"])  + "%" + " completezza dati")
 
 	    select("#punteggio_medio")
-		.text(Math.round(100*this.props.data[index]["data"]) + "% totale")
-		   
-
-		   
+		.text(Math.round(100 * this.props.data[index]["punteggio_medio"]) + "% totale")
+	        .style("font-weight", "bold")
 	}
     };
     

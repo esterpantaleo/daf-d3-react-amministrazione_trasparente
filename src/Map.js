@@ -76,9 +76,9 @@ class Map extends Component {
     }
 
     componentDidUpdate() {
-	const hoverElement = this.props.hoverElement;
-	if (hoverElement !== 'none') {
-	    this.map.setFilter('Quartieri-hover', ['==', 'COMUNE', hoverElement]);
+	const props = this.props;
+	if (props.hoverElement !== 'none') {
+	    this.map.setFilter('Quartieri-hover', ['==', 'COMUNE', props.hoverElement]);
 	}	    
     }
     
@@ -86,7 +86,7 @@ class Map extends Component {
 	return (
             <div	    
 	        ref={el => this.mapContainer = el}
-	        style={{ height: "60vh", width: "70vw" }}
+	        style={{ height: "70vh", width: "70vw" }}
             />
 	);
     }
